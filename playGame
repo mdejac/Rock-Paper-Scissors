@@ -1,0 +1,52 @@
+const playGame = (userChoice) => {
+  let outCome = "";
+  let pcChoice = Math.floor(Math.random() * 3);
+  const choices = ["rock", "paper", "scissors"];
+
+  switch (choices.indexOf(userChoice)) {
+    case 0:
+      if (pcChoice === 2) {
+        outCome = "win";
+        break;
+      } else if (pcChoice === 1) {
+        outCome = "lose";
+        break;
+      } else {
+        outCome = "draw";
+        break;
+      }
+    case 1:
+      if (pcChoice === 0) {
+        outCome = "win";
+        break;
+      } else if (pcChoice === 2) {
+        outCome = "lose";
+        break;
+      } else {
+        outCome = "draw";
+        break;
+      }
+    case 2:
+      if (pcChoice === 1) {
+        outCome = "win";
+        break;
+      } else if (pcChoice === 0) {
+        outCome = "lose";
+        break;
+      } else {
+        outCome = "draw";
+        break;
+      }
+  }
+  if (outCome === "win") {
+    return `You win! ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1)} beats ${choices[pcChoice]}.`;
+  } else if (outCome === "lose") {
+    return `You lose! ${choices[pcChoice].charAt(0).toUpperCase()}${choices[pcChoice].slice(1)} beats ${userChoice}.`;
+  } else {
+    return `It's a draw! ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1)} ties ${choices[pcChoice]}.`;
+  }
+};
+
+console.log(playGame("rock"));
+console.log(playGame("paper"));
+console.log(playGame("scissors"));
