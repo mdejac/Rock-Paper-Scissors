@@ -3,7 +3,7 @@ const playGame = (userChoice) => {
   let pcChoice = Math.floor(Math.random() * 3);
   const choices = ["rock", "paper", "scissors"];
 
-  switch (choices.indexOf(userChoice)) {
+  switch (choices.indexOf(userChoice.toLowerCase())) {
     case 0:
       if (pcChoice === 2) {
         outCome = "win";
@@ -37,16 +37,19 @@ const playGame = (userChoice) => {
         outCome = "draw";
         break;
       }
+      default :
+        return `You forfeit! ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1).toLowerCase()} is not a valid option.`;
   }
   if (outCome === "win") {
-    return `You win! ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1)} beats ${choices[pcChoice]}.`;
+    return `You win! ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1).toLowerCase()} beats ${choices[pcChoice]}.`;
   } else if (outCome === "lose") {
-    return `You lose! ${choices[pcChoice].charAt(0).toUpperCase()}${choices[pcChoice].slice(1)} beats ${userChoice}.`;
+    return `You lose! ${choices[pcChoice].charAt(0).toUpperCase()}${choices[pcChoice].slice(1).toLowerCase()} beats ${userChoice}.`;
   } else {
-    return `It's a draw! ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1)} ties ${choices[pcChoice]}.`;
+    return `It's a draw! ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1).toLowerCase()} ties ${choices[pcChoice]}.`;
   }
 };
 
-console.log(playGame("rock"));
-console.log(playGame("paper"));
+console.log(playGame("Rock"));
+console.log(playGame("papEr"));
 console.log(playGame("scissors"));
+console.log(playGame("knife"));
