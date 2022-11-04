@@ -1,7 +1,14 @@
 const playGame = (userChoice) => {
   let outCome = "";
-  let pcChoice = Math.floor(Math.random() * 3);
+  const pcChoice = Math.floor(Math.random() * 3);
   const choices = ["rock", "paper", "scissors"];
+  if (Number.isInteger(userChoice)){
+    userChoice = 'A number';
+  }
+  //Test for secret code.
+  if (userChoice.toLowerCase() === 'bomb'){
+    return `I suppose you win but is a ${userChoice.toLowerCase()} really fair?`;
+  }
 
   switch (choices.indexOf(userChoice.toLowerCase())) {
     case 0:
@@ -52,4 +59,6 @@ const playGame = (userChoice) => {
 console.log(playGame("Rock"));
 console.log(playGame("papEr"));
 console.log(playGame("scissors"));
-console.log(playGame("knife"));
+console.log(playGame('knife'));
+console.log(playGame('bomb'));
+console.log(playGame(1));
